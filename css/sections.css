@@ -1,5 +1,5 @@
 /* ============================================================
-   SECTIONS.CSS — Introduction + Selected Work (Phase 2)
+   SECTIONS.CSS — Introduction + Selected Work
    Tùng Anh Portfolio
    ============================================================ */
 
@@ -30,7 +30,7 @@
   background: var(--color-line);
 }
 
-/* ── Lead headline — elevated from Phase 1 ────────────────── */
+/* ── Lead headline ────────────────────────────────────────── */
 .intro__lead {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);

@@ -65,28 +65,6 @@ const SECTION_CONFIGS = [
     ],
   },
 
-  // ── Project 01: Viettel — horizontal pipeline ───────────────
-  // raw info → validation → processing → structured output
-  {
-    id: 'diagram-viettel',
-    width: '100%',
-    height: 56,
-    viewBox: '0 0 520 56',
-    preserveAspectRatio: 'xMinYMid meet',
-    nodes: [
-      { cx: 16,  cy: 28, r: 3 },   // input
-      { cx: 146, cy: 28, r: 2.5 }, // validation
-      { cx: 276, cy: 28, r: 2.5 }, // processing
-      { cx: 406, cy: 28, r: 2.5 }, // structuring
-      { cx: 504, cy: 28, r: 3 },   // output
-    ],
-    paths: [
-      { d: 'M 16 28 L 146 28' },
-      { d: 'M 146 28 L 276 28' },
-      { d: 'M 276 28 L 406 28' },
-      { d: 'M 406 28 L 504 28' },
-    ],
-  },
 
   // End of configs
 ];

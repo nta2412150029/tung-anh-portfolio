@@ -241,97 +241,139 @@
             The physical routing of audio dictates what happens on stage. The architecture below visualizes the signal flow derived from our actual technical rider.
           </p>
           
-          <div class="cs-diagram-container sp-diagram" aria-label="Stage Architecture &amp; Signal Routing">
+          <div class="cs-diagram-container" aria-label="Stage Architecture &amp; Signal Routing">
             <span class="cs-diagram-label">Stage Architecture &amp; Signal Routing</span>
             
-            <svg id="tcm-svg-routes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <marker id="tcm-arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-line-dim)" />
-                </marker>
-                <marker id="tcm-arrow-emerald" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-emerald)" />
-                </marker>
-                <marker id="tcm-arrow-brass" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-brass)" />
-                </marker>
-              </defs>
-              <g id="tcm-paths-group"></g>
-            </svg>
-
-            <div class="sp-grid" id="tcm-grid">
+            <!-- DESKTOP LAYOUT -->
+            <div class="tcm-signal-diagram">
               
-              <!-- 1. Analog Inputs -->
-              <div class="sp-cell">
-                <div class="sp-zone" id="tcm-node-analog">
-                  <span class="sp-zone-title">Analog / Live Inputs</span>
-                  <div class="sp-nodes-row">
-                    <div class="sp-node sp-node--dim">
-                      <span class="sp-dot" aria-hidden="true"></span>
-                      <span class="sp-label" style="min-width: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Instruments</span>
-                    </div>
-                    <div class="sp-node sp-node--dim">
-                      <span class="sp-dot" aria-hidden="true"></span>
-                      <span class="sp-label" style="min-width: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Vocals</span>
-                    </div>
+              <!-- ROW 1 -->
+              <div class="tcm-signal-group" style="grid-column: 1; grid-row: 1;">
+                <div class="tcm-signal-group__title">Analog / Live Inputs</div>
+                <div class="tcm-signal-group-row">
+                  <div class="tcm-signal-node tcm-signal-node--dim">
+                    <span class="tcm-signal-node__name">Instruments</span>
+                  </div>
+                  <div class="tcm-signal-node tcm-signal-node--dim">
+                    <span class="tcm-signal-node__name">Vocals</span>
                   </div>
                 </div>
               </div>
 
-              <!-- 1. Playback System -->
-              <div class="sp-cell">
-                <div class="sp-zone sp-zone--emerald">
-                  <span class="sp-zone-title sp-zone-title--emerald">Playback System</span>
-                  <div class="sp-nodes-col">
-                    <div class="sp-node sp-node--emerald" id="tcm-node-click">
-                      <span class="sp-dot" aria-hidden="true"></span>
-                      <span class="sp-label">Click</span>
-                    </div>
-                    <div class="sp-node sp-node--emerald" id="tcm-node-guide">
-                      <span class="sp-dot" aria-hidden="true"></span>
-                      <span class="sp-label">Guide</span>
-                    </div>
-                    <div class="sp-node sp-node--emerald sp-node--backing" id="tcm-node-backing">
-                      <span class="sp-dot" aria-hidden="true"></span>
-                      <span class="sp-label">Backing L/R</span>
-                    </div>
+              <div class="tcm-signal-group tcm-signal-group--emerald" style="grid-column: 3; grid-row: 1;">
+                <div class="tcm-signal-group__title">Playback System</div>
+                <div class="tcm-signal-group-col">
+                  <div class="tcm-signal-node tcm-signal-node--emerald">
+                    <span class="tcm-signal-node__name">Click</span>
+                  </div>
+                  <div class="tcm-signal-node tcm-signal-node--emerald">
+                    <span class="tcm-signal-node__name">Guide</span>
+                  </div>
+                  <div class="tcm-signal-node tcm-signal-node--brass" style="position: relative;">
+                    <!-- Drop line starting point for Backing -> FOH -->
+                    <div style="position: absolute; left: -10px; top: 50%; width: 10px; height: 1px; background: var(--color-brass);"></div>
+                    <span class="tcm-signal-node__name">Backing L/R</span>
                   </div>
                 </div>
               </div>
 
-              <!-- 2. M32 Mixing -->
-              <div class="sp-cell">
-                <div class="sp-node sp-node--dim sp-node--large" id="tcm-node-m32">
-                  <span class="sp-dot" aria-hidden="true"></span>
-                  <div class="sp-node-text">
-                    <span class="sp-label">M32 Stage Mixing</span>
-                    <span class="sp-sub-label">Routing</span>
-                  </div>
+              <!-- ROW 2: Vertical Routes -->
+              <div class="tcm-route-v" style="grid-column: 1; grid-row: 2;"></div>
+              
+              <div style="grid-column: 3; grid-row: 2; width: 100%; height: 100%; position: relative;">
+                <!-- Click/Guide -> IEM vertical bus (centered) -->
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; border-left: 1px dashed rgba(55, 102, 83, 0.45);"></div>
+                <!-- Backing L/R drop line (60px from left = 220px from right) -->
+                <div style="position: absolute; left: 60px; top: -16px; bottom: 0; width: 1px; background: var(--color-brass);"></div>
+              </div>
+
+              <!-- ROW 3: M32 -->
+              <div class="tcm-signal-node tcm-signal-node--dim tcm-signal-node--large" style="grid-column: 1; grid-row: 3;">
+                <span class="tcm-signal-node__name">M32 Stage Mixing</span>
+              </div>
+              
+              <!-- Route through Col 3 -->
+              <div style="grid-column: 3; grid-row: 3; width: 100%; height: 100%; position: relative;">
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; border-left: 1px dashed rgba(55, 102, 83, 0.45);"></div>
+                <div style="position: absolute; left: 60px; top: 0; bottom: 0; width: 1px; background: var(--color-brass);"></div>
+              </div>
+
+              <!-- ROW 4: Cross Routes -->
+              <div style="grid-column: 1 / 4; grid-row: 4; width: 100%; height: 100%; position: relative;">
+                <!-- M32 -> FOH (straight down) -->
+                <div style="position: absolute; left: 140px; top: 0; bottom: 0; width: 1px; background: var(--color-line-dim);">
+                  <div class="tcm-arrow" style="border-top-color: var(--color-line-dim);"></div>
+                </div>
+                
+                <!-- Playback -> IEM (straight down) -->
+                <div style="position: absolute; right: 140px; top: 0; bottom: 0; width: 1px; border-left: 1px dashed rgba(55, 102, 83, 0.45);">
+                  <div class="tcm-arrow" style="border-top-color: rgba(55, 102, 83, 0.45); left: -4px;"></div>
+                </div>
+
+                <!-- M32 -> IEM (Cross) -->
+                <!-- left 140px -> right 160px -->
+                <div style="position: absolute; left: 140px; right: 160px; top: 0; height: 30px; border-left: 1px solid var(--color-line-dim); border-bottom: 1px solid var(--color-line-dim);"></div>
+                <div style="position: absolute; right: 160px; top: 30px; bottom: 0; width: 1px; background: var(--color-line-dim);">
+                  <div class="tcm-arrow" style="border-top-color: var(--color-line-dim);"></div>
+                </div>
+
+                <!-- Backing -> FOH (Cross) -->
+                <!-- right 220px -> left 240px -->
+                <div style="position: absolute; right: 220px; left: 240px; top: 0; height: 60px; border-right: 1px solid var(--color-brass); border-bottom: 1px solid var(--color-brass);"></div>
+                <div style="position: absolute; left: 240px; top: 60px; bottom: 0; width: 1px; background: var(--color-brass);">
+                  <div class="tcm-arrow" style="border-top-color: var(--color-brass);"></div>
                 </div>
               </div>
 
-              <!-- 2. Empty cell for grid layout -->
-              <div class="sp-cell sp-cell--routing"></div>
+              <!-- ROW 5: Outputs -->
+              <div class="tcm-signal-node tcm-signal-node--brass tcm-signal-node--large" style="grid-column: 1; grid-row: 5;">
+                <span class="tcm-signal-node__name">Front of House</span>
+                <span class="tcm-signal-node__meta">Audience</span>
+              </div>
 
-              <!-- 3. Front of House -->
-              <div class="sp-cell">
-                <div class="sp-node sp-node--brass sp-node--large" id="tcm-node-foh">
-                  <span class="sp-dot" aria-hidden="true"></span>
-                  <div class="sp-node-text">
-                    <span class="sp-label">Front of House</span>
-                    <span class="sp-sub-label">Audience</span>
+              <div class="tcm-signal-node tcm-signal-node--brass tcm-signal-node--large" style="grid-column: 3; grid-row: 5;">
+                <span class="tcm-signal-node__name">In-Ear Monitors</span>
+                <span class="tcm-signal-node__meta">Band</span>
+              </div>
+            </div>
+
+            <!-- MOBILE LAYOUT -->
+            <div class="tcm-signal-mobile">
+              <div class="tcm-signal-group">
+                <div class="tcm-signal-group__title">Analog / Live Inputs</div>
+                <div class="tcm-signal-group-col">
+                  <div class="tcm-signal-node tcm-signal-node--dim">
+                    <span class="tcm-signal-node__name">Instruments</span>
+                  </div>
+                  <div class="tcm-signal-node tcm-signal-node--dim">
+                    <span class="tcm-signal-node__name">Vocals</span>
                   </div>
                 </div>
               </div>
+              
+              <div class="tcm-mobile-route"></div>
+              
+              <div class="tcm-signal-node tcm-signal-node--dim tcm-signal-node--large">
+                <span class="tcm-signal-node__name">M32 Stage Mixing</span>
+              </div>
+              
+              <div class="tcm-mobile-route"></div>
 
-              <!-- 3. IEM -->
-              <div class="sp-cell">
-                <div class="sp-node sp-node--brass sp-node--large" id="tcm-node-iem">
-                  <span class="sp-dot" aria-hidden="true"></span>
-                  <div class="sp-node-text">
-                    <span class="sp-label">In-Ear Monitors</span>
-                    <span class="sp-sub-label">Band</span>
-                  </div>
+              <div class="tcm-signal-node tcm-signal-node--brass tcm-signal-node--large">
+                <span class="tcm-signal-node__name">Front of House</span>
+              </div>
+              
+              <div class="tcm-signal-node tcm-signal-node--brass tcm-signal-node--large">
+                <span class="tcm-signal-node__name">In-Ear Monitors</span>
+              </div>
+
+              <!-- Playback separate group -->
+              <div class="tcm-signal-group tcm-signal-group--emerald" style="margin-top: var(--space-4);">
+                <div class="tcm-signal-group__title">Playback System</div>
+                <div class="tcm-signal-group-col" style="align-items: flex-start; padding: var(--space-2);">
+                  <div class="tcm-mobile-text">Click <span class="tcm-mobile-text--emerald">→ IEM</span></div>
+                  <div class="tcm-mobile-text">Guide <span class="tcm-mobile-text--emerald">→ IEM</span></div>
+                  <div class="tcm-mobile-text">Backing L/R <span class="tcm-mobile-text--brass">→ FOH + IEM</span></div>
                 </div>
               </div>
 
@@ -431,90 +473,6 @@
       </div>
     </section>
 
-  <script>
-    function drawTCMRoutes() {
-      const svg = document.getElementById('tcm-svg-routes');
-      const grid = document.getElementById('tcm-grid');
-      const g = document.getElementById('tcm-paths-group');
-      if (!svg || !grid || !g) return;
-      
-      const gridRect = grid.getBoundingClientRect();
-      
-      function getPt(id, edge) {
-        const el = document.getElementById(id);
-        if (!el) return null;
-        const r = el.getBoundingClientRect();
-        const top = r.top - gridRect.top;
-        const left = r.left - gridRect.left;
-        const w = r.width;
-        const h = r.height;
-        
-        switch(edge) {
-          case 'top': return { x: left + w/2, y: top };
-          case 'bottom': return { x: left + w/2, y: top + h };
-          case 'left': return { x: left, y: top + h/2 };
-          case 'right': return { x: left + w, y: top + h/2 };
-          default: return { x: left + w/2, y: top + h/2 };
-        }
-      }
-      
-      const nAnalog = getPt('tcm-node-analog', 'bottom');
-      const nM32Top = getPt('tcm-node-m32', 'top');
-      const nM32Bot = getPt('tcm-node-m32', 'bottom');
-      const nFohTop = getPt('tcm-node-foh', 'top');
-      const nFohLeft = getPt('tcm-node-foh', 'left');
-      const nIemTop = getPt('tcm-node-iem', 'top');
-      const nIemLeft = getPt('tcm-node-iem', 'left');
-      
-      const nClick = getPt('tcm-node-click', 'left');
-      const nGuide = getPt('tcm-node-guide', 'left');
-      const nBacking = getPt('tcm-node-backing', 'left');
-      
-      if (!nAnalog || !nM32Top || !nFohTop || !nIemTop) return;
-      
-      let paths = '';
-      const M = p => `M ${p.x} ${p.y}`;
-      const V = y => `V ${y}`;
-      const H = x => `H ${x}`;
-      
-      // 1. Analog -> M32
-      paths += `<path d="${M(nAnalog)} ${V(nM32Top.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
-      
-      // 2. M32 -> FOH (straight down)
-      paths += `<path d="${M(nM32Bot)} ${V(nFohTop.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
-      
-      // 3. M32 -> IEM (right and down)
-      let m32_iem_midY = nM32Bot.y + (nFohTop.y - nM32Bot.y) * 0.3;
-      paths += `<path d="${M(nM32Bot)} ${V(m32_iem_midY)} ${H(nIemTop.x)} ${V(nIemTop.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
-      
-      // 4. Playback Routing
-      let fohEl = document.getElementById('tcm-node-foh');
-      let fohLeftEdge = fohEl ? (fohEl.getBoundingClientRect().left - gridRect.left) : nClick.x;
-      
-      // Compute safe buses to avoid clipping FOH on mobile stack
-      let busX1 = Math.min(nClick.x, nGuide.x, nBacking.x, fohLeftEdge) - 20;
-      let busX2 = busX1 - 15;
-      
-      // Click & Guide to Bus 1 (Dashed)
-      paths += `<path d="${M(nClick)} ${H(busX1)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" />`;
-      paths += `<path d="${M(nGuide)} ${H(busX1)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" />`;
-      // Bus 1 -> IEM
-      paths += `<path d="${M({x: busX1, y: nClick.y})} ${V(nIemLeft.y - 10)} ${H(nIemLeft.x)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
-      
-      // Backing to Bus 2 (Solid)
-      paths += `<path d="${M(nBacking)} ${H(busX2)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" />`;
-      // Bus 2 -> FOH
-      paths += `<path d="${M({x: busX2, y: nBacking.y})} ${V(nFohLeft.y)} ${H(nFohLeft.x)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
-      // Bus 2 -> IEM
-      paths += `<path d="${M({x: busX2, y: nFohLeft.y})} ${V(nIemLeft.y + 10)} ${H(nIemLeft.x)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
-      
-      g.innerHTML = paths;
-    }
-    
-    window.addEventListener('load', () => setTimeout(drawTCMRoutes, 100));
-    window.addEventListener('resize', drawTCMRoutes);
-    drawTCMRoutes();
-  </script>
   </main>
 
   <footer style="border-top: 1px solid var(--color-line-dim); padding-block: var(--space-8);">
