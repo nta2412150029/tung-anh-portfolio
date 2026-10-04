@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>PathWise — Tùng Anh Portfolio</title>
+  <meta name="description"
+    content="What Should I Learn Next? A data-driven decision system built by Nguyễn Tùng Anh connecting skill profiles to learning roadmaps." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/case-study.css" />
+  
+  <style>
+    /* PathWise specific overrides to feel different from Viettel */
+    .cs-hero--pathwise .cs-hero__pipeline-accent {
+      background: var(--color-brass);
+    }
+    
+    .cs-logic-block {
+      border: 1px solid var(--color-line-dim);
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+    }
+    
+    .cs-logic-formula {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    
+    .cs-logic-term {
+      color: var(--color-brass);
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav id="site-nav" class="nav" aria-label="Primary navigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__wordmark" aria-label="Tùng Anh — home">Tùng Anh</a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html#work"      class="nav__link">Work</a></li>
+          <li><a href="index.html#thinking"  class="nav__link">Thinking</a></li>
+          <li><a href="index.html#about"     class="nav__link">About</a></li>
+          <li><a href="index.html#contact"   class="nav__link">Contact</a></li>
+        </ul>
+        <button
+          id="nav-menu-trigger"
+          class="nav__menu-trigger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-overlay"
+        >Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div
+    id="nav-overlay"
+    class="nav-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation menu"
+    aria-hidden="true"
+    data-open="false"
+  >
+    <div id="nav-overlay-svg" class="nav-overlay__graphic" aria-hidden="true"></div>
+    <div class="nav-overlay__header">
+      <span class="nav-overlay__wordmark">Tùng Anh</span>
+      <button id="nav-overlay-close" class="nav-overlay__close" aria-label="Close navigation menu">Close</button>
+    </div>
+    <nav class="nav-overlay__body" aria-label="Mobile navigation">
+      <ul class="nav-overlay__links" role="list">
+        <li><a href="index.html#work"     class="nav-overlay__link">Work</a></li>
+        <li><a href="index.html#thinking" class="nav-overlay__link">Thinking</a></li>
+        <li><a href="index.html#about"    class="nav-overlay__link">About</a></li>
+        <li><a href="index.html#contact"  class="nav-overlay__link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay__footer">
+      <span class="nav-overlay__footer-label">Business &nbsp;·&nbsp; Technology &nbsp;·&nbsp; Performance</span>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 01 PROJECT INTRODUCTION -->
+    <section class="cs-hero cs-hero--pathwise" aria-labelledby="cs-title">
+      <div class="cs-hero__pipeline-accent" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cs-hero__meta reveal">
+          <span class="cs-hero__tag" style="color: var(--color-emerald);">PathWise</span>
+          <span class="cs-hero__sep" aria-hidden="true"></span>
+          <span class="cs-hero__role">Project Lead / Product &amp; Website Development</span>
+        </div>
+        
+        <h1 id="cs-title" class="cs-hero__title reveal reveal--delay-1">
+          What Should<br />
+          I Learn<br />
+          Next?
+        </h1>
+
+        <p class="cs-hero__descriptor reveal reveal--delay-2">
+          A data-driven decision system connecting skill profiles, career requirements, and priority scoring into an actionable learning roadmap.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 THE QUESTION / PROBLEM -->
+    <section class="cs-section" aria-labelledby="sec-problem">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">02</span>
+          <h2 id="sec-problem" class="cs-section__title">The Question</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p class="cs-statement">
+            The premise for PathWise emerged from a specific, recurring obstacle in student development.
+          </p>
+          <div class="cs-pull-quote reveal reveal--delay-2" style="border-color: var(--color-brass);">
+            Students often know where they want to go without knowing which skill should come next.
+          </div>
+          <p>
+            The gap between a current profile and a career target isn't a single missing piece; it's a web of prerequisites, varying skill weights, and prioritization choices. I wanted to build a system that calculated that path instead of guessing it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 DATA & LOGIC -->
+    <section class="cs-section" aria-labelledby="sec-logic">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">03</span>
+          <h2 id="sec-logic" class="cs-section__title">Data &amp; Logic</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The core of the project was a Python logic engine. Before any frontend was built, the conceptual math of a "Skill Gap" and "Career Fit" had to be defined mathematically.
+          </p>
+          
+          <div class="cs-logic-block reveal reveal--delay-2">
+            <div style="font-size: var(--text-2xs); color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-widest); margin-bottom: var(--space-4);">Current Level + Required Level → Gap</div>
+            <div class="cs-logic-formula">Gap = max(Required Level - Current Level, 0)</div>
+            <div class="cs-logic-formula">GapScore = Gap / 4 × 100</div>
+            Measuring how far a current skill level is from the required proficiency.
+          </div>
+          
+          <div class="cs-logic-block reveal reveal--delay-3">
+            <div style="font-size: var(--text-2xs); color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-widest); margin-bottom: var(--space-4);">Current Level + Required Level + Importance → Career Fit</div>
+            <div class="cs-logic-formula">SkillMatch = min(Current Level / Required Level, 1) × 100</div>
+            <div class="cs-logic-formula">CareerFit = weighted average of SkillMatch by <span class="cs-logic-term">Importance</span></div>
+            Evaluating overall alignment with a potential career track.
+          </div>
+
+          <div class="cs-logic-block reveal reveal--delay-4">
+            <div style="font-size: var(--text-2xs); color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-widest); margin-bottom: var(--space-4);">Gap Score + Importance + Market Demand + Strategic Value → Priority</div>
+            <div class="cs-logic-formula">
+              Priority = 0.30 × GapScore + 0.30 × Importance + 0.20 × Market Demand + 0.20 × Strategic Value
+            </div>
+            Determining the true next step algorithmically.
+          </div>
+
+          <div class="cs-logic-block reveal reveal--delay-5" style="border-color: var(--color-brass);">
+            <div style="font-size: var(--text-2xs); color: var(--color-brass); text-transform: uppercase; letter-spacing: var(--tracking-widest); margin-bottom: var(--space-4);">Prerequisites → Recommendation Eligibility</div>
+            <p style="margin-bottom: 0; color: var(--color-text);">Only skills with Gap > 0 are candidates. An unmet prerequisite blocks that skill from recommendation.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 DECISION SYSTEM -->
+    <section class="cs-section" aria-labelledby="sec-system">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">04</span>
+          <h2 id="sec-system" class="cs-section__title">Decision System</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            Visually, the Python engine acts as an architectural decision tree. One input (the student's profile) branches into multiple career possibilities, gets weighed against priority metrics, and converges back into a single output.
+          </p>
+          
+          <div class="cs-diagram-container dp-diagram" aria-label="Branching Architecture Metaphor">
+            <span class="cs-diagram-label">Branching Architecture Metaphor</span>
+
+            <div class="dp-tree">
+              <!-- ROOT -->
+              <div class="dp-node dp-node--primary">
+                <span class="dp-dot" aria-hidden="true"></span>
+                <span class="dp-label">Student Profile</span>
+              </div>
+              
+              <div class="dp-v-line" aria-hidden="true"></div>
+
+              <!-- CAREERS -->
+              <div class="dp-zone">
+                <span class="dp-zone-title">Career Requirements</span>
+                <div class="dp-branch-top" aria-hidden="true"></div>
+                <div class="dp-row">
+                  <div class="dp-node dp-node--dim">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Career A</span>
+                  </div>
+                  <div class="dp-node dp-node--dim">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Career B</span>
+                  </div>
+                  <div class="dp-node dp-node--dim">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Career C</span>
+                  </div>
+                </div>
+                <div class="dp-branch-bottom" aria-hidden="true"></div>
+              </div>
+
+              <div class="dp-v-line" aria-hidden="true"></div>
+
+              <!-- ANALYSIS -->
+              <div class="dp-node dp-node--emerald">
+                <span class="dp-dot" aria-hidden="true"></span>
+                <span class="dp-label">Skill Gap / Match</span>
+              </div>
+              
+              <div class="dp-v-line" aria-hidden="true"></div>
+
+              <div class="dp-node dp-node--emerald">
+                <span class="dp-dot" aria-hidden="true"></span>
+                <span class="dp-label">Priority Evaluation</span>
+              </div>
+
+              <div class="dp-v-line" aria-hidden="true"></div>
+
+              <!-- DECISION -->
+              <div class="dp-node dp-node--brass">
+                <span class="dp-dot" aria-hidden="true"></span>
+                <span class="dp-label">Prerequisites Met?</span>
+              </div>
+
+              <div class="dp-decision-split" aria-hidden="true"></div>
+
+              <div class="dp-row dp-row--wide">
+                <div class="dp-col">
+                  <span class="dp-decision-label">YES</span>
+                  <div class="dp-v-line dp-v-line--short" aria-hidden="true"></div>
+                  <div class="dp-node dp-node--emerald">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Recommendation</span>
+                  </div>
+                  <div class="dp-v-line" aria-hidden="true"></div>
+                  <div class="dp-node dp-node--output">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Learning Roadmap</span>
+                  </div>
+                </div>
+                <div class="dp-col">
+                  <span class="dp-decision-label">NO</span>
+                  <div class="dp-v-line dp-v-line--short" aria-hidden="true"></div>
+                  <div class="dp-node dp-node--blocked">
+                    <span class="dp-dot" aria-hidden="true"></span>
+                    <span class="dp-label">Blocked</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <p>
+            By structuring the logic this way, the recommendation logic scales cleanly regardless of how many new skills or career tracks are added to the dataset.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PRODUCT -->
+    <section class="cs-section" aria-labelledby="sec-product">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">05</span>
+          <h2 id="sec-product" class="cs-section__title">Product</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The logic was only half the project. To make it useful, it had to be accessible. 
+          </p>
+
+          <div class="cs-visual-panel reveal reveal--delay-2" style="margin-block: var(--space-8);">
+            
+            <div class="cs-flow-row" style="grid-template-columns: 80px 1fr;">
+              <span class="cs-flow-label">Backend</span>
+              <div class="cs-flow-track">
+                <span class="cs-flow-node">Python Logic</span>
+                <div class="cs-flow-line" aria-hidden="true"></div>
+                <span class="cs-flow-node" style="color: var(--color-brass); border-color: var(--color-brass);">Recommendation Layer</span>
+              </div>
+            </div>
+
+            <div class="cs-flow-row" style="grid-template-columns: 80px 1fr;">
+              <span class="cs-flow-label" style="color: var(--color-emerald);">Frontend</span>
+              <div class="cs-flow-track">
+                <span class="cs-flow-node cs-flow-node--accent">Web Interface</span>
+                <div class="cs-flow-line" aria-hidden="true"></div>
+                <span class="cs-flow-node cs-flow-node--accent">Learning Roadmap</span>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="reveal reveal--delay-3">
+            I led the development of the frontend implementation, turning the Python backend into a working data-driven web application. The interface translates complex gap analyses and priority scoring into an intuitive Learning Roadmap. 
+          </p>
+          <p class="reveal reveal--delay-4">
+            The UI respects the complexity of the data without overwhelming the user, focusing purely on the "next step" rather than exposing the entire calculation matrix.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 VALIDATION -->
+    <section class="cs-section" aria-labelledby="sec-validation">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">06</span>
+          <h2 id="sec-validation" class="cs-section__title">Validation</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            A recommendation engine is only as good as its edge-case handling. The implementation was validated through end-to-end testing.
+          </p>
+          <ul style="list-style: none; padding: 0; margin-block: var(--space-6);">
+            <li style="margin-bottom: var(--space-4); padding-left: var(--space-4); border-left: 1px solid var(--color-brass);">
+              <strong style="color: var(--color-text);">E2E Calculation Trace:</strong> Verified that priority scoring matched theoretical models perfectly.
+            </li>
+            <li style="margin-bottom: var(--space-4); padding-left: var(--space-4); border-left: 1px solid var(--color-brass);">
+              <strong style="color: var(--color-text);">Prerequisite Blocking:</strong> Confirmed that high-priority advanced skills were correctly suppressed if foundational skills were missing.
+            </li>
+            <li style="margin-bottom: var(--space-4); padding-left: var(--space-4); border-left: 1px solid var(--color-brass);">
+              <strong style="color: var(--color-text);">Full Stack Integration:</strong> Automated testing ensured the frontend correctly connected to and parsed the Python logic output.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 IMPACT -->
+    <section class="cs-section" aria-labelledby="sec-impact">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">07</span>
+          <h2 id="sec-impact" class="cs-section__title">Takeaway</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            PathWise demonstrated the ability to take a conceptual problem (learning direction) and solve it systematically: a system that moves from profile → analysis → prioritization → recommendation → roadmap.
+          </p>
+
+          <div class="cs-impact-grid">
+            <div class="cs-impact-meta">The Outcome</div>
+            
+            <div class="cs-impact-statement cs-impact-statement--brass" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+              A Complete System
+            </div>
+            
+            <div style="margin-top: var(--space-8); border-top: 1px solid var(--color-line-dim); padding-top: var(--space-6);">
+              <div class="cs-stat">
+                <span class="cs-stat__value">End-to-End</span>
+                <span class="cs-stat__label">From algorithm to web application</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CLOSING -->
+    <section class="cs-next reveal">
+      <div class="container">
+        <span class="cs-next__label">Next Project</span>
+        <a href="tcm-show.html" class="cs-next__title">
+          TCM's Show 2026 — Music &amp; Technical Direction
+        </a>
+        <br />
+        <a href="index.html#work" class="cta cta--secondary">
+          Back to Selected Work
+          <span class="cta__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="border-top: 1px solid var(--color-line-dim); padding-block: var(--space-8);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">Nguyễn Tùng Anh</span>
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">THE ARCHITECT × THE CONDUCTOR</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

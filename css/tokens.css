@@ -1,0 +1,95 @@
+/* ============================================================
+   TOKENS.CSS — Design Token System
+   Tùng Anh Portfolio
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────── */
+  --color-bg:         #111815;
+  --color-surface:    #18211D;
+  --color-surface-2:  #1c2922;
+
+  /* ── Text ─────────────────────────────────────────────── */
+  --color-text:       #F2EFE5;
+  --color-muted:      #9BA39A;
+  --color-dim:        #6b7670;
+
+  /* ── Accent ───────────────────────────────────────────── */
+  --color-emerald:    #376653;
+  --color-brass:      #C8A35D;
+  --color-brass-dim:  rgba(200, 163, 93, 0.4);
+
+  /* ── Graphic / structural ─────────────────────────────── */
+  --color-line:       #44574D;
+  --color-line-dim:   rgba(68, 87, 77, 0.35);
+  --color-line-faint: rgba(68, 87, 77, 0.15);
+
+  /* ── Semantic ─────────────────────────────────────────── */
+  --color-focus:      #C8A35D;
+
+  /* ── Typography: families ─────────────────────────────── */
+  --font-display:  'Fraunces', Georgia, serif;
+  --font-body:     'Jost', system-ui, sans-serif;
+
+  /* ── Typography: scale ────────────────────────────────── */
+  --text-2xs:   0.625rem;
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.25rem;
+  --text-xl:    1.75rem;
+  --text-2xl:   2.5rem;
+  --text-3xl:   3.5rem;
+  --text-hero:  clamp(2.75rem, 7.5vw, 6.5rem);
+
+  /* ── Typography: weights ──────────────────────────────── */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+
+  /* ── Typography: tracking ─────────────────────────────── */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.08em;
+  --tracking-widest:   0.2em;
+
+  /* ── Spacing (8pt grid) ───────────────────────────────── */
+  --space-1:    0.5rem;
+  --space-2:    1rem;
+  --space-3:    1.5rem;
+  --space-4:    2rem;
+  --space-5:    2.5rem;
+  --space-6:    3rem;
+  --space-8:    4rem;
+  --space-10:   5rem;
+  --space-12:   6rem;
+  --space-16:   8rem;
+  --space-20:  10rem;
+  --space-24:  12rem;
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --container-max:  1280px;
+  --container-pad:  clamp(var(--space-3), 6vw, var(--space-12));
+  --nav-height:     4rem;
+
+  /* ── Z-index layers ───────────────────────────────────── */
+  --z-base:     0;
+  --z-above:    10;
+  --z-nav:      100;
+  --z-overlay:  200;
+
+  /* ── Easing ───────────────────────────────────────────── */
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart:  cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out:     cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-standard:   cubic-bezier(0.25, 0, 0, 1);
+
+  /* ── Transitions ──────────────────────────────────────── */
+  --transition-fast:   160ms var(--ease-out-quart);
+  --transition-base:   320ms var(--ease-out-expo);
+  --transition-slow:   600ms var(--ease-out-expo);
+  --transition-reveal: 700ms var(--ease-standard);
+}
+

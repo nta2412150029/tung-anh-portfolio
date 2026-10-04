@@ -1,0 +1,536 @@
+/* ============================================================
+   SECTIONS.CSS — Introduction + Selected Work (Phase 2)
+   Tùng Anh Portfolio
+   ============================================================ */
+
+/* ════════════════════════════════════════════════════════════
+   §2  INTRODUCTION
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Identity duality label ───────────────────────────────── */
+.intro__duality {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.intro__duality-text {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.intro__duality-sep {
+  width: 1px;
+  height: 1rem;
+  background: var(--color-line);
+}
+
+/* ── Lead headline — elevated from Phase 1 ────────────────── */
+.intro__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+  color: var(--color-text);
+  max-width: 38ch;
+  margin-bottom: var(--space-6);
+}
+
+/* ── Body copy ────────────────────────────────────────────── */
+.intro__body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 52ch;
+}
+
+/* ── Process pipeline — OBSERVE → EXECUTE ─────────────────── */
+.intro__process {
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-line-dim);
+}
+
+.process__label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-dim);
+  margin-bottom: var(--space-4);
+}
+
+.process__steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+  row-gap: var(--space-2);
+}
+
+.process__step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.process__step-name {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.process__step--first .process__step-name {
+  color: var(--color-brass);
+}
+
+.process__connector {
+  display: flex;
+  align-items: center;
+  padding-inline: var(--space-2);
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.process__connector-line {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-line);
+  flex-shrink: 0;
+}
+
+.process__connector-arrow {
+  color: var(--color-line);
+  font-size: 0.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Right column: discipline list ───────────────────────── */
+.intro__disciplines {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.intro__discipline-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-1);
+  border-bottom: 1px solid var(--color-line-faint);
+}
+
+.intro__discipline-item:last-child {
+  border-bottom: none;
+}
+
+.intro__discipline-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-emerald);
+  flex-shrink: 0;
+}
+
+.intro__discipline-name {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── Introduction SVG node container ─────────────────────── */
+.intro__svg-wrap {
+  margin-top: var(--space-10);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Right column context statement ──────────────────────── */
+.intro__context {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 48ch;
+}
+
+.intro__context strong {
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+/* ── Introduction mobile ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .intro__lead {
+    max-width: none;
+  }
+
+  .intro__body {
+    max-width: none;
+  }
+
+  .process__steps {
+    gap: 0;
+  }
+
+  .process__connector-line {
+    width: 0.75rem;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   §3  SELECTED WORK — HEADER BLOCK
+   ════════════════════════════════════════════════════════════ */
+
+.work__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: end;
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--color-line-dim);
+  margin-bottom: var(--space-16);
+}
+
+.work__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, var(--text-3xl));
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.work__context {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-muted);
+  max-width: 42ch;
+  margin-bottom: var(--space-4);
+}
+
+.work__project-names {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+@media (max-width: 768px) {
+  .work__header {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-bottom: var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   §3  CASE STUDY ENTRIES
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Base entry ───────────────────────────────────────────── */
+.project-entry {
+  position: relative;
+  padding-block: var(--space-12);
+  border-top: 1px solid var(--color-line-dim);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-8) var(--space-12);
+  align-items: start;
+  transition: border-color var(--transition-base);
+}
+
+.project-entry:last-child {
+  border-bottom: 1px solid var(--color-line-dim);
+}
+
+/* Left-edge accent line — unique per project */
+.project-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  background: var(--color-emerald);
+  transition: height 800ms var(--ease-out-expo);
+}
+
+.project-entry:hover::before,
+.project-entry.is-active::before {
+  height: 100%;
+}
+
+/* ── Project meta column (left) ───────────────────────────── */
+.project-entry__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-4);
+}
+
+.project-entry__number {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.project-entry__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, var(--text-2xl));
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.project-entry__descriptor {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  max-width: none;
+}
+
+.project-entry__role {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-dim);
+  margin-top: var(--space-1);
+}
+
+/* ── Project body column (right) ──────────────────────────── */
+.project-entry__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.project-entry__context {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+/* ── Phase strip ─────────────────────────────────────────── */
+.project-entry__phases {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  row-gap: var(--space-1);
+}
+
+.phase-item {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-dim);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.phase-sep {
+  padding-inline: var(--space-2);
+  color: var(--color-line);
+  font-size: var(--text-2xs);
+  flex-shrink: 0;
+}
+
+/* ── Contributions list ───────────────────────────────────── */
+.project-entry__contributions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contribution-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-block: var(--space-1);
+  border-bottom: 1px solid var(--color-line-faint);
+}
+
+.contribution-row:first-child {
+  border-top: 1px solid var(--color-line-faint);
+}
+
+.contribution-row__label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  flex: 1;
+  max-width: none;
+}
+
+.contribution-row__accent {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-brass);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── SVG diagram container ────────────────────────────────── */
+.project-entry__diagram {
+  margin-top: var(--space-2);
+}
+
+/* ── Case study link ─────────────────────────────────────── */
+.project-entry__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color var(--transition-fast);
+}
+
+.project-entry__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-brass);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.project-entry__link:hover {
+  color: var(--color-brass);
+}
+
+.project-entry__link:hover::after {
+  transform: scaleX(1);
+}
+
+.project-entry__link-arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+
+.project-entry__link:hover .project-entry__link-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Per-project left-edge color overrides ────────────────── */
+/* Viettel Commerce — emerald (default, operational) */
+.project-entry--viettel::before {
+  background: var(--color-emerald);
+}
+
+/* PathWise — brass node (decision/convergence) */
+.project-entry--pathwise::before {
+  background: var(--color-brass);
+}
+
+/* TCM — structural line (signal, neutral) */
+.project-entry--tcm::before {
+  background: var(--color-line);
+}
+
+/* ── Mobile case study entries ────────────────────────────── */
+@media (max-width: 768px) {
+  .project-entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block: var(--space-8);
+    /* On mobile: top-edge accent instead of left */
+    padding-top: var(--space-6);
+    border-top-width: 1px;
+  }
+
+  /* Replace left-edge line with top accent on mobile */
+  .project-entry::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 0;
+    height: 2px;
+    transition: width 800ms var(--ease-out-expo);
+  }
+
+  .project-entry:hover::before,
+  .project-entry.is-active::before {
+    width: 100%;
+    height: 2px;
+  }
+
+  .project-entry__meta {
+    padding-left: 0;
+  }
+
+  .project-entry__context {
+    max-width: none;
+  }
+
+  .project-entry__phases {
+    flex-wrap: wrap;
+  }
+
+  .project-entry__contributions {
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-entry__title {
+    font-size: clamp(1.5rem, 7vw, 1.75rem);
+  }
+}
+

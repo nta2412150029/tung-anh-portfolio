@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>TCM's Show 2026 — Tùng Anh Portfolio</title>
+  <meta name="description"
+    content="Music & Technical Direction for TCM's Show 2026. A case study in coordinating music, technology, routing, and live execution." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/case-study.css" />
+  
+  <style>
+    /* TCM specific overrides */
+    .cs-hero--tcm .cs-hero__pipeline-accent {
+      background: var(--color-emerald);
+    }
+    
+    .tcm-svg-desktop { display: block; width: 100%; max-width: 800px; margin: 0 auto; }
+    .tcm-svg-mobile { display: none; width: 100%; max-width: 300px; margin: 0 auto; }
+    
+    @media (max-width: 768px) {
+      .tcm-svg-desktop { display: none; }
+      .tcm-svg-mobile { display: block; }
+    }
+
+    .tcm-contribution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      border-top: 1px solid var(--color-line-dim);
+      padding-top: var(--space-8);
+      margin-top: var(--space-8);
+    }
+    
+    @media (max-width: 768px) {
+      .tcm-contribution-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tcm-list-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-brass);
+      margin-bottom: var(--space-4);
+    }
+
+    .tcm-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tcm-list li {
+      margin-bottom: var(--space-2);
+      font-family: var(--font-body);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+    }
+
+    .tcm-live-sequence {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      margin-block: var(--space-8);
+      text-align: center;
+    }
+
+    .tcm-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-emerald);
+      box-shadow: 0 0 10px var(--color-emerald);
+      animation: tcmPulse 2s infinite alternate;
+    }
+
+    @keyframes tcmPulse {
+      0% { opacity: 0.5; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav id="site-nav" class="nav" aria-label="Primary navigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__wordmark" aria-label="Tùng Anh — home">Tùng Anh</a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html#work"      class="nav__link">Work</a></li>
+          <li><a href="index.html#thinking"  class="nav__link">Thinking</a></li>
+          <li><a href="index.html#about"     class="nav__link">About</a></li>
+          <li><a href="index.html#contact"   class="nav__link">Contact</a></li>
+        </ul>
+        <button
+          id="nav-menu-trigger"
+          class="nav__menu-trigger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-overlay"
+        >Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div
+    id="nav-overlay"
+    class="nav-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation menu"
+    aria-hidden="true"
+    data-open="false"
+  >
+    <div id="nav-overlay-svg" class="nav-overlay__graphic" aria-hidden="true"></div>
+    <div class="nav-overlay__header">
+      <span class="nav-overlay__wordmark">Tùng Anh</span>
+      <button id="nav-overlay-close" class="nav-overlay__close" aria-label="Close navigation menu">Close</button>
+    </div>
+    <nav class="nav-overlay__body" aria-label="Mobile navigation">
+      <ul class="nav-overlay__links" role="list">
+        <li><a href="index.html#work"     class="nav-overlay__link">Work</a></li>
+        <li><a href="index.html#thinking" class="nav-overlay__link">Thinking</a></li>
+        <li><a href="index.html#about"    class="nav-overlay__link">About</a></li>
+        <li><a href="index.html#contact"  class="nav-overlay__link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay__footer">
+      <span class="nav-overlay__footer-label">Business &nbsp;·&nbsp; Technology &nbsp;·&nbsp; Performance</span>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 01 PROJECT INTRODUCTION -->
+    <section class="cs-hero cs-hero--tcm" aria-labelledby="cs-title">
+      <div class="cs-hero__pipeline-accent" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cs-hero__meta reveal">
+          <span class="cs-hero__tag" style="color: var(--color-emerald);">TCM's Show 2026</span>
+          <span class="cs-hero__sep" aria-hidden="true"></span>
+          <span class="cs-hero__role">Music &amp; Technical Direction</span>
+        </div>
+        
+        <h1 id="cs-title" class="cs-hero__title reveal reveal--delay-1">
+          Music &amp;<br />
+          Technical<br />
+          Direction
+        </h1>
+
+        <p class="cs-hero__descriptor reveal reveal--delay-2">
+          A live performance is not one system. It is many systems that have to move together. Coordinating music, technology, and execution.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 THE SYSTEM -->
+    <section class="cs-section" aria-labelledby="sec-system">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">02</span>
+          <h2 id="sec-system" class="cs-section__title">The System</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p class="cs-statement" style="font-size: var(--text-lg); line-height: 1.4;">
+            Musicians + Playback + FOH + IEM + Stage + Vocals + Instruments <span style="color: var(--color-brass);">→ One Live Performance</span>
+          </p>
+          <p>
+            The complexity of the live environment requires precise orchestration. The stage was divided into discrete zones for drums, guitars, bass, keyboards, ethnic instruments, playback, and vocals. Each of these zones fed into two Midas M32 digital mixers. 
+          </p>
+          <p>
+            Simultaneously, an 18-set wireless IEM system and a complex playback rig ran concurrently. Success depended on ensuring these individual components operated as a unified, seamless technical architecture.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 MY CONTRIBUTION -->
+    <section class="cs-section" aria-labelledby="sec-contribution">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">03</span>
+          <h2 id="sec-contribution" class="cs-section__title">My Contribution</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            My role sat at the intersection of music preparation and technical execution. I was not the overall show director or the audio engineer—my focus was building the musical assets and coordinating their integration into the technical environment.
+          </p>
+
+          <div class="tcm-contribution-grid">
+            <div class="reveal reveal--delay-2">
+              <h3 class="tcm-list-title">What I Built</h3>
+              <ul class="tcm-list">
+                <li>Ableton backing tracks for ~50% of the setlist</li>
+                <li>MuseScore sheet music for ~50% of the setlist</li>
+                <li>The master setlist and timing documentation</li>
+              </ul>
+            </div>
+            <div class="reveal reveal--delay-3">
+              <h3 class="tcm-list-title">What I Coordinated</h3>
+              <ul class="tcm-list">
+                <li>Live performance on stage</li>
+                <li>Playback system cues and technical requirements</li>
+                <li>Connecting musical needs to the audio engineering team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 SIGNAL FLOW -->
+    <section class="cs-section" aria-labelledby="sec-flow">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">04</span>
+          <h2 id="sec-flow" class="cs-section__title">Signal Flow</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The physical routing of audio dictates what happens on stage. The architecture below visualizes the signal flow derived from our actual technical rider.
+          </p>
+          
+          <div class="cs-diagram-container sp-diagram" aria-label="Stage Architecture &amp; Signal Routing">
+            <span class="cs-diagram-label">Stage Architecture &amp; Signal Routing</span>
+            
+            <svg id="tcm-svg-routes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="tcm-arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-line-dim)" />
+                </marker>
+                <marker id="tcm-arrow-emerald" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-emerald)" />
+                </marker>
+                <marker id="tcm-arrow-brass" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-brass)" />
+                </marker>
+              </defs>
+              <g id="tcm-paths-group"></g>
+            </svg>
+
+            <div class="sp-grid" id="tcm-grid">
+              
+              <!-- 1. Analog Inputs -->
+              <div class="sp-cell">
+                <div class="sp-zone" id="tcm-node-analog">
+                  <span class="sp-zone-title">Analog / Live Inputs</span>
+                  <div class="sp-nodes-row">
+                    <div class="sp-node sp-node--dim">
+                      <span class="sp-dot" aria-hidden="true"></span>
+                      <span class="sp-label" style="min-width: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Instruments</span>
+                    </div>
+                    <div class="sp-node sp-node--dim">
+                      <span class="sp-dot" aria-hidden="true"></span>
+                      <span class="sp-label" style="min-width: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Vocals</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 1. Playback System -->
+              <div class="sp-cell">
+                <div class="sp-zone sp-zone--emerald">
+                  <span class="sp-zone-title sp-zone-title--emerald">Playback System</span>
+                  <div class="sp-nodes-col">
+                    <div class="sp-node sp-node--emerald" id="tcm-node-click">
+                      <span class="sp-dot" aria-hidden="true"></span>
+                      <span class="sp-label">Click</span>
+                    </div>
+                    <div class="sp-node sp-node--emerald" id="tcm-node-guide">
+                      <span class="sp-dot" aria-hidden="true"></span>
+                      <span class="sp-label">Guide</span>
+                    </div>
+                    <div class="sp-node sp-node--emerald sp-node--backing" id="tcm-node-backing">
+                      <span class="sp-dot" aria-hidden="true"></span>
+                      <span class="sp-label">Backing L/R</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. M32 Mixing -->
+              <div class="sp-cell">
+                <div class="sp-node sp-node--dim sp-node--large" id="tcm-node-m32">
+                  <span class="sp-dot" aria-hidden="true"></span>
+                  <div class="sp-node-text">
+                    <span class="sp-label">M32 Stage Mixing</span>
+                    <span class="sp-sub-label">Routing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Empty cell for grid layout -->
+              <div class="sp-cell sp-cell--routing"></div>
+
+              <!-- 3. Front of House -->
+              <div class="sp-cell">
+                <div class="sp-node sp-node--brass sp-node--large" id="tcm-node-foh">
+                  <span class="sp-dot" aria-hidden="true"></span>
+                  <div class="sp-node-text">
+                    <span class="sp-label">Front of House</span>
+                    <span class="sp-sub-label">Audience</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. IEM -->
+              <div class="sp-cell">
+                <div class="sp-node sp-node--brass sp-node--large" id="tcm-node-iem">
+                  <span class="sp-dot" aria-hidden="true"></span>
+                  <div class="sp-node-text">
+                    <span class="sp-label">In-Ear Monitors</span>
+                    <span class="sp-sub-label">Band</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <p>
+            Crucially, the playback system required distinct logic: the <strong style="color: var(--color-emerald);">Click</strong> and <strong style="color: var(--color-emerald);">Guide</strong> channels were routed exclusively to the band's In-Ear Monitors (IEM), bypassing Front of House entirely. Only the Backing L/R stems were sent to both FOH and IEMs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 COORDINATION -->
+    <section class="cs-section" aria-labelledby="sec-coordination">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">05</span>
+          <h2 id="sec-coordination" class="cs-section__title">Coordination</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The complexity was not just technical—it was operational. To ensure all systems moved together, the <strong>master setlist</strong> acted as the central control layer.
+          </p>
+          
+          <div class="cs-pull-quote reveal reveal--delay-2" style="border-color: var(--color-line-dim); margin-block: var(--space-6);">
+            <div style="font-size: var(--text-sm); font-family: var(--font-body); letter-spacing: var(--tracking-widest); color: var(--color-muted); text-transform: uppercase;">
+              Music &nbsp;·&nbsp; Technology &nbsp;·&nbsp; People &nbsp;·&nbsp; Timing &nbsp;·&nbsp; Documentation
+            </div>
+          </div>
+          
+          <p>
+            This document synchronized the band's musical cues, the playback engineer's triggers, and the FOH engineer's mixing expectations into a single operational reference during the show.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 LIVE EXECUTION -->
+    <section class="cs-section" aria-labelledby="sec-execution">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">06</span>
+          <h2 id="sec-execution" class="cs-section__title">Live Execution</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            Architecture only matters when it is stress-tested. The transition from static documentation to kinetic performance required extreme precision.
+          </p>
+
+          <div class="tcm-live-sequence">
+            <span class="reveal reveal--delay-2" style="font-family: var(--font-body); color: var(--color-muted); letter-spacing: var(--tracking-wide); text-transform: uppercase; font-size: var(--text-xs);">Prepared Inputs</span>
+            <div class="tcm-pulse reveal reveal--delay-3"></div>
+            <span class="reveal reveal--delay-4" style="font-family: var(--font-body); color: var(--color-muted); letter-spacing: var(--tracking-wide); text-transform: uppercase; font-size: var(--text-xs);">Coordinated System</span>
+            <div class="tcm-pulse reveal reveal--delay-5"></div>
+            <span class="reveal reveal--delay-6" style="font-family: var(--font-display); color: var(--color-text); font-size: var(--text-xl);">Real-Time Execution</span>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 TAKEAWAY -->
+    <section class="cs-section" aria-labelledby="sec-impact">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">07</span>
+          <h2 id="sec-impact" class="cs-section__title">Takeaway</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The same systems thinking used to architect business logic or data engines is what orchestrates a live performance. When inputs, routing, and timing are structured properly, the result is seamless.
+          </p>
+
+          <div class="cs-impact-grid" style="margin-top: var(--space-8);">
+            <div class="cs-impact-meta">The Outcome</div>
+            <div class="cs-impact-statement cs-impact-statement--brass" style="font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.02em;">
+              Structure Makes Performance Possible.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CLOSING -->
+    <section class="cs-next reveal">
+      <div class="container">
+        <span class="cs-next__label">Next Step</span>
+        <a href="index.html#thinking" class="cs-next__title">
+          Architect × Conductor
+        </a>
+        <br />
+        <a href="index.html#work" class="cta cta--secondary">
+          Back to Selected Work
+          <span class="cta__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  <script>
+    function drawTCMRoutes() {
+      const svg = document.getElementById('tcm-svg-routes');
+      const grid = document.getElementById('tcm-grid');
+      const g = document.getElementById('tcm-paths-group');
+      if (!svg || !grid || !g) return;
+      
+      const gridRect = grid.getBoundingClientRect();
+      
+      function getPt(id, edge) {
+        const el = document.getElementById(id);
+        if (!el) return null;
+        const r = el.getBoundingClientRect();
+        const top = r.top - gridRect.top;
+        const left = r.left - gridRect.left;
+        const w = r.width;
+        const h = r.height;
+        
+        switch(edge) {
+          case 'top': return { x: left + w/2, y: top };
+          case 'bottom': return { x: left + w/2, y: top + h };
+          case 'left': return { x: left, y: top + h/2 };
+          case 'right': return { x: left + w, y: top + h/2 };
+          default: return { x: left + w/2, y: top + h/2 };
+        }
+      }
+      
+      const nAnalog = getPt('tcm-node-analog', 'bottom');
+      const nM32Top = getPt('tcm-node-m32', 'top');
+      const nM32Bot = getPt('tcm-node-m32', 'bottom');
+      const nFohTop = getPt('tcm-node-foh', 'top');
+      const nFohLeft = getPt('tcm-node-foh', 'left');
+      const nIemTop = getPt('tcm-node-iem', 'top');
+      const nIemLeft = getPt('tcm-node-iem', 'left');
+      
+      const nClick = getPt('tcm-node-click', 'left');
+      const nGuide = getPt('tcm-node-guide', 'left');
+      const nBacking = getPt('tcm-node-backing', 'left');
+      
+      if (!nAnalog || !nM32Top || !nFohTop || !nIemTop) return;
+      
+      let paths = '';
+      const M = p => `M ${p.x} ${p.y}`;
+      const V = y => `V ${y}`;
+      const H = x => `H ${x}`;
+      
+      // 1. Analog -> M32
+      paths += `<path d="${M(nAnalog)} ${V(nM32Top.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
+      
+      // 2. M32 -> FOH (straight down)
+      paths += `<path d="${M(nM32Bot)} ${V(nFohTop.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
+      
+      // 3. M32 -> IEM (right and down)
+      let m32_iem_midY = nM32Bot.y + (nFohTop.y - nM32Bot.y) * 0.3;
+      paths += `<path d="${M(nM32Bot)} ${V(m32_iem_midY)} ${H(nIemTop.x)} ${V(nIemTop.y)}" stroke="var(--color-line-dim)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-dim)"/>`;
+      
+      // 4. Playback Routing
+      let fohEl = document.getElementById('tcm-node-foh');
+      let fohLeftEdge = fohEl ? (fohEl.getBoundingClientRect().left - gridRect.left) : nClick.x;
+      
+      // Compute safe buses to avoid clipping FOH on mobile stack
+      let busX1 = Math.min(nClick.x, nGuide.x, nBacking.x, fohLeftEdge) - 20;
+      let busX2 = busX1 - 15;
+      
+      // Click & Guide to Bus 1 (Dashed)
+      paths += `<path d="${M(nClick)} ${H(busX1)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" />`;
+      paths += `<path d="${M(nGuide)} ${H(busX1)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" />`;
+      // Bus 1 -> IEM
+      paths += `<path d="${M({x: busX1, y: nClick.y})} ${V(nIemLeft.y - 10)} ${H(nIemLeft.x)}" stroke="var(--color-emerald)" stroke-dasharray="4 4" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
+      
+      // Backing to Bus 2 (Solid)
+      paths += `<path d="${M(nBacking)} ${H(busX2)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" />`;
+      // Bus 2 -> FOH
+      paths += `<path d="${M({x: busX2, y: nBacking.y})} ${V(nFohLeft.y)} ${H(nFohLeft.x)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
+      // Bus 2 -> IEM
+      paths += `<path d="${M({x: busX2, y: nFohLeft.y})} ${V(nIemLeft.y + 10)} ${H(nIemLeft.x)}" stroke="var(--color-emerald)" stroke-width="1" fill="none" marker-end="url(#tcm-arrow-emerald)"/>`;
+      
+      g.innerHTML = paths;
+    }
+    
+    window.addEventListener('load', () => setTimeout(drawTCMRoutes, 100));
+    window.addEventListener('resize', drawTCMRoutes);
+    drawTCMRoutes();
+  </script>
+  </main>
+
+  <footer style="border-top: 1px solid var(--color-line-dim); padding-block: var(--space-8);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">Nguyễn Tùng Anh</span>
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">THE ARCHITECT × THE CONDUCTOR</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

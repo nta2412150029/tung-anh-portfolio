@@ -1,0 +1,164 @@
+/* ============================================================
+   LAYOUT.CSS — Grid System, Section Scaffolding
+   Tùng Anh Portfolio
+   ============================================================ */
+
+/* ── Container ────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* ── Main layout ──────────────────────────────────────────── */
+main {
+  position: relative;
+}
+
+/* ── Section base ─────────────────────────────────────────── */
+.section {
+  position: relative;
+  padding-block: var(--space-16);
+  scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+}
+
+.section--lg {
+  padding-block: var(--space-20);
+}
+
+.section--sm {
+  padding-block: var(--space-10);
+}
+
+/* ── Section header ───────────────────────────────────────── */
+.section__header {
+  margin-bottom: var(--space-10);
+}
+
+.section__header--spaced {
+  margin-bottom: var(--space-16);
+}
+
+/* ── Chapter label block ──────────────────────────────────── */
+.chapter-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.chapter-label__number {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-brass);
+  text-transform: uppercase;
+}
+
+.chapter-label__line {
+  flex: 0 0 2rem;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.chapter-label__text {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── Section title ────────────────────────────────────────── */
+.section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.section__title--lg {
+  font-size: var(--text-3xl);
+}
+
+/* ── Horizontal rule ──────────────────────────────────────── */
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.rule--dim {
+  border-top-color: var(--color-line-dim);
+}
+
+/* ── Grid layouts ─────────────────────────────────────────── */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.grid-asymmetric {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--space-8);
+}
+
+.grid-asymmetric--reverse {
+  grid-template-columns: 3fr 2fr;
+}
+
+/* ── Responsive grid collapses ────────────────────────────── */
+@media (max-width: 768px) {
+  .grid-2col,
+  .grid-asymmetric,
+  .grid-asymmetric--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .section {
+    padding-block: var(--space-10);
+  }
+
+  .section--lg {
+    padding-block: var(--space-12);
+  }
+}
+
+/* ── Structural border ────────────────────────────────────── */
+.border-left {
+  border-left: 1px solid var(--color-line);
+  padding-left: var(--space-4);
+}
+
+.border-left--emerald {
+  border-left-color: var(--color-emerald);
+}
+
+/* ── Scroll progress bar ──────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-line-dim);
+  z-index: calc(var(--z-nav) + 1);
+}
+
+#scroll-progress::after {
+  content: '';
+  display: block;
+  height: 100%;
+  background: var(--color-brass);
+  transform-origin: left;
+  transform: scaleX(var(--scroll-progress, 0));
+  transition: transform 50ms linear;
+}
+

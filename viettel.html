@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Viettel Commerce — Tùng Anh Portfolio</title>
+  <meta name="description"
+    content="Commercial Contract Management case study by Nguyễn Tùng Anh at Viettel Commerce. Turning operational friction into a more structured system." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/case-study.css" />
+</head>
+
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav id="site-nav" class="nav" aria-label="Primary navigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__wordmark" aria-label="Tùng Anh — home">Tùng Anh</a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html#work"      class="nav__link">Work</a></li>
+          <li><a href="index.html#thinking"  class="nav__link">Thinking</a></li>
+          <li><a href="index.html#about"     class="nav__link">About</a></li>
+          <li><a href="index.html#contact"   class="nav__link">Contact</a></li>
+        </ul>
+        <button
+          id="nav-menu-trigger"
+          class="nav__menu-trigger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-overlay"
+        >Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div
+    id="nav-overlay"
+    class="nav-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation menu"
+    aria-hidden="true"
+    data-open="false"
+  >
+    <div id="nav-overlay-svg" class="nav-overlay__graphic" aria-hidden="true"></div>
+    <div class="nav-overlay__header">
+      <span class="nav-overlay__wordmark">Tùng Anh</span>
+      <button id="nav-overlay-close" class="nav-overlay__close" aria-label="Close navigation menu">Close</button>
+    </div>
+    <nav class="nav-overlay__body" aria-label="Mobile navigation">
+      <ul class="nav-overlay__links" role="list">
+        <li><a href="index.html#work"     class="nav-overlay__link">Work</a></li>
+        <li><a href="index.html#thinking" class="nav-overlay__link">Thinking</a></li>
+        <li><a href="index.html#about"    class="nav-overlay__link">About</a></li>
+        <li><a href="index.html#contact"  class="nav-overlay__link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay__footer">
+      <span class="nav-overlay__footer-label">Business &nbsp;·&nbsp; Technology &nbsp;·&nbsp; Performance</span>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 01 PROJECT INTRODUCTION -->
+    <section class="cs-hero" aria-labelledby="cs-title">
+      <div class="cs-hero__pipeline-accent" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cs-hero__meta reveal">
+          <span class="cs-hero__tag">Viettel Commerce</span>
+          <span class="cs-hero__sep" aria-hidden="true"></span>
+          <span class="cs-hero__role">International Business Economics Intern</span>
+        </div>
+        
+        <h1 id="cs-title" class="cs-hero__title reveal reveal--delay-1">
+          Commercial<br />
+          Contract<br />
+          Management
+        </h1>
+
+        <p class="cs-hero__descriptor reveal reveal--delay-2">
+          Turning operational friction into a more structured system. 
+          A focus on contract administration, document validation, and data processing.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 CONTEXT / PROBLEM -->
+    <section class="cs-section" aria-labelledby="sec-context">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">02</span>
+          <h2 id="sec-context" class="cs-section__title">Context &amp;<br />Problem</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            At Viettel Commerce, managing commercial contracts involves a complex web of administration, document validation, and financial reconciliation. The environment is highly operational, requiring precision across numerous concurrent tasks.
+          </p>
+          <p>
+            A significant point of friction was identified in the warranty processing workflow. The manual handling of device records, including serial-number validation and warranty data extraction, was highly time-consuming and prone to human error when dealing with large volumes of hardware.
+          </p>
+          <div class="cs-pull-quote reveal reveal--delay-2">
+            Processing hundreds of records manually created a bottleneck.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 INVESTIGATION -->
+    <section class="cs-section" aria-labelledby="sec-investigation">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">03</span>
+          <h2 id="sec-investigation" class="cs-section__title">Investigation</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            To address the bottleneck, the first step was to deconstruct the existing workflow. I observed the manual steps taken to extract warranty data and validate serial numbers. 
+          </p>
+          <p>
+            The root of the inefficiency was not a lack of effort, but a lack of structural automation. Data was treated as raw, unstructured information that required manual processing at every step of the validation chain. 
+          </p>
+          <p>
+            I needed to understand the data requirements of the manufacturer and how our internal records mapped to those requirements, specifically analyzing FX variance calculations and document validation protocols.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 SYSTEM THINKING -->
+    <section class="cs-section" aria-labelledby="sec-system">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">04</span>
+          <h2 id="sec-system" class="cs-section__title">System Thinking</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p class="cs-statement">
+            Instead of simply trying to process the manual workload faster, I looked at the workflow as a pipeline. The goal was to transform raw, noisy inputs into validated, structured outputs with minimal human intervention.
+          </p>
+          
+          <div class="cs-diagram-container vp-diagram" aria-label="Operational Pipeline Metaphor diagram">
+
+            <span class="cs-diagram-label">Operational Pipeline Metaphor</span>
+
+            <!-- ─ MANUAL WORKFLOW ─────────────────────────────── -->
+            <div class="vp-band vp-band--manual" aria-label="Manual workflow">
+              <div class="vp-band__header">
+                <span class="vp-band__title">Manual Workflow</span>
+              </div>
+              <div class="vp-band__stages">
+                <div class="vp-stage vp-stage--dim">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Raw Records</span>
+                </div>
+                <div class="vp-connector vp-connector--dim" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--dim">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Data Entry</span>
+                </div>
+                <div class="vp-connector vp-connector--dim" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--dim">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Visual Check</span>
+                </div>
+                <div class="vp-connector vp-connector--dim" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--dim">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Formatting</span>
+                </div>
+                <div class="vp-connector vp-connector--dim" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--dim">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Record Prep</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ INTERVENTION BRIDGE ────────────────────────── -->
+            <div class="vp-intervention" aria-label="System intervention">
+              <div class="vp-intervention__line" aria-hidden="true"></div>
+              <span class="vp-intervention__label">System Intervention</span>
+              <div class="vp-intervention__line" aria-hidden="true"></div>
+            </div>
+
+            <!-- ─ AUTOMATED PIPELINE ─────────────────────────── -->
+            <div class="vp-band vp-band--auto" aria-label="Automated pipeline">
+              <div class="vp-band__header">
+                <span class="vp-band__title vp-band__title--emerald">Automated Pipeline</span>
+              </div>
+              <div class="vp-band__stages">
+                <div class="vp-stage vp-stage--emerald">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Serial Records</span>
+                </div>
+                <div class="vp-connector vp-connector--emerald" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--emerald">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">API Extraction</span>
+                </div>
+                <div class="vp-connector vp-connector--emerald" aria-hidden="true"></div>
+
+                <!-- Validation node — also branches to exception -->
+                <div class="vp-stage-group" aria-label="Validation with exception branch">
+                  <div class="vp-stage vp-stage--brass">
+                    <span class="vp-stage__dot" aria-hidden="true"></span>
+                    <span class="vp-stage__name">Rule Validation</span>
+                  </div>
+                  <!-- Exception branch drops below -->
+                  <div class="vp-exception-branch" aria-label="Exception path">
+                    <div class="vp-exception-branch__line" aria-hidden="true"></div>
+                    <div class="vp-exception-row">
+                      <div class="vp-stage vp-stage--dim vp-stage--sm">
+                        <span class="vp-stage__dot" aria-hidden="true"></span>
+                        <span class="vp-stage__name">Exception</span>
+                      </div>
+                      <div class="vp-connector vp-connector--dim vp-connector--sm" aria-hidden="true"></div>
+                      <div class="vp-stage vp-stage--dim vp-stage--sm">
+                        <span class="vp-stage__dot" aria-hidden="true"></span>
+                        <span class="vp-stage__name">Final Review</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="vp-connector vp-connector--emerald" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--emerald">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Processing</span>
+                </div>
+                <div class="vp-connector vp-connector--emerald" aria-hidden="true"></div>
+                <div class="vp-stage vp-stage--brass vp-stage--output">
+                  <span class="vp-stage__dot" aria-hidden="true"></span>
+                  <span class="vp-stage__name">Structured Output</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /vp-diagram -->
+          
+          <p>
+            By clearly defining the stages—data ingestion, rule-based validation, automated processing, and final structuring—I could identify exactly where an automated system could replace manual effort.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04B STRONG VISUAL MOMENT -->
+    <section class="container reveal">
+      <div class="cs-visual-panel" aria-label="Transformation from manual to automated">
+        
+        <div class="cs-flow-row">
+          <span class="cs-flow-label">Manual</span>
+          <div class="cs-flow-track">
+            <span class="cs-flow-node">Data Entry</span>
+            <div class="cs-flow-line" aria-hidden="true"></div>
+            <span class="cs-flow-node">Visual Check</span>
+            <div class="cs-flow-line" aria-hidden="true"></div>
+            <span class="cs-flow-node">Format</span>
+            <div class="cs-flow-line" aria-hidden="true"></div>
+            <span class="cs-flow-node">Record</span>
+          </div>
+        </div>
+
+        <div class="cs-flow-row">
+          <span class="cs-flow-label" style="color: var(--color-emerald);">Automated</span>
+          <div class="cs-flow-track">
+            <span class="cs-flow-node cs-flow-node--accent">API Extraction</span>
+            <div class="cs-flow-line" aria-hidden="true"></div>
+            <span class="cs-flow-node cs-flow-node--accent">Rule Validation</span>
+            <div class="cs-flow-line" aria-hidden="true"></div>
+            <span class="cs-flow-node cs-flow-node--accent">Structured Output</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 SOLUTION -->
+    <section class="cs-section" aria-labelledby="sec-solution">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">05</span>
+          <h2 id="sec-solution" class="cs-section__title">Solution</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            I developed a <strong>manufacturer API prototype</strong> designed specifically for warranty data extraction and processing. 
+          </p>
+          <p>
+            The prototype automated the pipeline. It ingested the raw serial numbers, interfaced with the manufacturer's data structures, validated the inputs against expected formats, and output a clean, accurate list of warranty statuses.
+          </p>
+          <p>
+            This shifted the role of the administrator from manual data entry to exception handling and final review, significantly elevating the efficiency of the commercial contract administration process.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 IMPACT -->
+    <section class="cs-section" aria-labelledby="sec-impact">
+      <div class="container cs-grid">
+        <header class="cs-section__header reveal">
+          <span class="cs-section__num">06</span>
+          <h2 id="sec-impact" class="cs-section__title">Impact</h2>
+        </header>
+        <div class="cs-section__body reveal reveal--delay-1">
+          <p>
+            The prototype successfully handled the workload. The most significant outcome was the drastic reduction in processing time and the elimination of manual transcription errors, leading to improved serial-number-list accuracy.
+          </p>
+
+          <div class="cs-impact-grid">
+            <div class="cs-impact-meta">Processing Time</div>
+            
+            <div class="cs-impact-statement">Several Hours</div>
+            <div style="color: var(--color-line-dim); font-size: 2rem; margin-block: var(--space-2);">↓</div>
+            <div class="cs-impact-statement cs-impact-statement--brass">Minutes</div>
+            
+            <div style="margin-top: var(--space-8); border-top: 1px solid var(--color-line-dim); padding-top: var(--space-6);">
+              <div class="cs-stat">
+                <span class="cs-stat__value">700+</span>
+                <span class="cs-stat__label">Device Records Processed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 CLOSING -->
+    <section class="cs-next reveal">
+      <div class="container">
+        <span class="cs-next__label">Next Project</span>
+        <a href="pathwise.html" class="cs-next__title">
+          PathWise — What Should I Learn Next?
+        </a>
+        <br />
+        <a href="index.html#work" class="cta cta--secondary">
+          Back to Selected Work
+          <span class="cta__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="border-top: 1px solid var(--color-line-dim); padding-block: var(--space-8);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">Nguyễn Tùng Anh</span>
+      <span style="font-family: var(--font-body); font-weight: var(--weight-light); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); color: var(--color-dim);">THE ARCHITECT × THE CONDUCTOR</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
